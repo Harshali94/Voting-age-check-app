@@ -1,0 +1,57 @@
+by sir
+
+<html>
+	<head>
+		<title>Voting App</title>
+		<style>
+			*{
+				font-size:50px;
+				text-align:center;
+				color:darkblue;
+			}
+			body {
+				background-color:lightblue;
+				}
+		</style>
+	</head>
+	<body>
+		<h1>Age and Voting Right App</h1>
+		<form onsubmit="check(event)">
+			<input type="number" id="id_age" placeholder="Enter your Age">
+			<br/><br/>
+			<input type="submit" value="Check"/>
+		</form>
+		<h2 id="id_msg"></h2>
+		
+		<script>
+			function check(event)
+			{
+				event.preventDefault();
+				let age=document.getElementById("id_age");
+				let msg =document.getElementById("id_msg");
+
+				if(age.value==="")
+			{
+				alert("Please enter your Age");
+				msg.textContent="";
+				age.focus();
+				return;
+			}
+				let a=parseFloat(age.value);
+
+				if ((age<=0)||(age>100))
+			{
+				alert("Age shud be between 1 to 100");
+				msg.textContent="";
+				age.focus();
+				return;
+			}
+
+				if(a>=18)
+					msg.textContent="yes u can vote";
+				else
+					msg.textContent="sorry u cannot vote";
+			}
+		</script>
+	</body>
+</html>
